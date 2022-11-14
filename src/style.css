@@ -1,0 +1,124 @@
+.fish {
+  position: absolute;
+  z-index: 2;
+  height: 28px;
+  width: 49px;
+  left: 0;
+  top: 0;
+}
+
+.text {
+  position: absolute;
+  height: 28px;
+  width: 49px;
+  left: 0;
+  top: 0;
+  color: rgb(0, 0, 0);
+  z-index: 9998;
+  font-weight: bold
+}
+
+.shark {
+  position: absolute;
+  height: 228px;
+  width: 249px;
+  left: 0;
+  top: 0;
+  z-index: 9999;
+}
+
+.background {
+  height: 100vh;
+  width: 105vw;
+  z-index: -2;
+}
+
+.seed {
+  position: absolute;
+  z-index: 2;
+  top: 32.5vmax;
+  left: -3vmin;
+  width: 15vw;
+  height: 45vh;
+}
+
+.seed2 {
+  position: absolute;
+  z-index: 2;
+  top: 30vmax;
+  right: -2vmin;
+  width: 18vw;
+  height: 45vh;
+  transform: rotateY(180deg);
+}
+
+.seed3 {
+  position: absolute;
+  width: 200px;
+  height: 500px;
+  transform: rotateY(180deg);
+}
+
+.seed4 {
+  position: absolute;
+  width: 200px;
+  height: 550px;
+}
+
+.seed5 {
+  position: absolute;
+  width: 200px;
+  height: 370px;
+}
+
+.seed6 {
+  position: absolute;
+  width: 200px;
+  height: 299px;
+  transform: rotateY(180deg);
+}
+
+.ss {
+  position: absolute;
+  width: 100vw;
+  height: 70vh;
+  transform: rotateY(180deg);
+}
+
+.bb {
+  width: 330px;
+  height: 330px;
+  position:fixed;
+  bottom: 140px;
+  left: 1%;
+  z-index: 0;
+}
+
+
+.hh {
+  position: absolute;
+  z-index: 2;
+  height: 100px;
+  width: 150px;
+}
+
+.cc {
+  margin: 20px;
+
+}
+
+.aa{
+  position:relative;
+  top: 250px;
+  right: 500px;
+  font-size: 25px;
+}
+
+.bott{
+  position: relative;
+  top: 350px;
+  right: 480px;
+  width: 100px;
+  height: 100px;
+  z-index: 1;
+}

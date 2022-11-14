@@ -1,0 +1,11 @@
+#qqq{
+    position: absolute;
+    top:60px;
+    left:123px;
+}
+#div1 {
+    width: 100px;
+    height: 100px;
+    background: #CCC;
+    position: absolute;
+  }
