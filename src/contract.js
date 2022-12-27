@@ -3,7 +3,7 @@ import Web3 from 'web3';
 const provider = new ethers.providers.Web3Provider(window.ethereum)
 const signer = provider.getSigner()
 export const op_wallet_address ="0x9bb130065466c6cC16BacEc886EF81da0265DF85";//部屬合約的人的錢包地址
-const address = '0x8B45cDdC1cbD1C17136b5d13acFbd9e20cE9DA3c'//合約地址
+const address = '0xedBD474fd448Bc827363846d37dE4d6939Af717E'//合約地址
 export const abi = 
 [
 	{
@@ -72,6 +72,15 @@ export const abi =
 				"type": "uint256[20]"
 			}
 		],
+		"payable": true,
+		"stateMutability": "payable",
+		"type": "function"
+	},
+	{
+		"constant": false,
+		"inputs": [],
+		"name": "reset_ad",
+		"outputs": [],
 		"payable": true,
 		"stateMutability": "payable",
 		"type": "function"
