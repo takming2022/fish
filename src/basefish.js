@@ -12,6 +12,9 @@ const Basefish = ({ countal, setDemofishtorf , setCountalll}) => {
   const [A, setA] = useState(false)
   const [fishs, setFishs] = useState()
   const [op , setop] = useState()
+  const [ad, setad] = useState(false)
+  const [ad_string, set_ad_string] = useState("")
+  const [Op,setOp] = useState()
   const history = useNavigate()
   var test = []
   // setInterval(() => {
@@ -33,6 +36,49 @@ const Basefish = ({ countal, setDemofishtorf , setCountalll}) => {
     }
     setFishs(test)
   }, [countal])
+
+  async function add_ad() {
+    const ethereum = window.ethereum
+    var accounts = await ethereum.request({ method: 'eth_requestAccounts' });
+    var wallet_address = accounts[0];
+    let ad_time_sel = document.getElementById("ad_time_sel").value;
+    let ad_txt = document.getElementById("ad_text").value;
+    if (ad_time_sel === "0.00001") {
+      let ether = 0.00001; // 抓 ether 值
+      console.log(ether);
+      let amount = Web3.utils.toWei(ether.toString())
+      let ans = await contractInstance_singner.add_ad(ad_txt, { from: wallet_address, value: amount.toString() })
+      console.log("ans", ans);
+    } else if (ad_time_sel === "0.00002") {
+      let ether = 0.00002; // 抓 ether 值
+      console.log(ether);
+      let amount = Web3.utils.toWei(ether.toString())
+      let ans = await contractInstance_singner.add_ad(ad_txt, { from: wallet_address, value: amount.toString() })
+      console.log("ans", ans);
+    } else if (ad_time_sel === "0.00003") {
+      let ether = 0.00003; // 抓 ether 值
+      console.log(ether);
+      let amount = Web3.utils.toWei(ether.toString())
+      let ans = await contractInstance_singner.add_ad(ad_txt, { from: wallet_address, value: amount.toString() })
+      console.log("ans", ans);
+    } else {
+      window.alert("請選擇時間")
+    }
+
+  }
+  async function reset_ad(){
+    const ethereum = window.ethereum
+    var accounts = await ethereum.request({ method: 'eth_requestAccounts' });
+    var wallet_address = accounts[0];
+    let ether =0; // 抓 ether 值
+      console.log(ether);
+      let amount = Web3.utils.toWei(ether.toString())
+      await contractInstance_singner.reset_ad({ from: wallet_address, value: amount.toString() })
+  }
+  setTimeout(() => {
+    getAccount()
+  }, 1);
+
   async function finsh() {
     const ethereum = window.ethereum
     var accounts = await ethereum.request({ method: 'eth_requestAccounts' });
@@ -112,7 +158,7 @@ const Basefish = ({ countal, setDemofishtorf , setCountalll}) => {
     }else{
      setop(false)
     }
-
+      
      
 }
   
@@ -122,17 +168,26 @@ const Basefish = ({ countal, setDemofishtorf , setCountalll}) => {
       <image src='./image/seagrass.gif'></image>
       {op ? <><button onClick={finsh}>open</button></> : <></>}
 
-      <div>
-        <img className='background' src='./image/sea1.gif' alt="123" />
-        <div><img className='seed' src='./image/seagrass.gif' alt="123" /></div>
-        <div><img className='seed2' src='./image/seagrass.gif' alt="123" /></div>
-        <div><img className='seed3' src='./image/seagrass.gif' alt="123" /></div>
-        <div><img className='seed4' src='./image/seagrass.gif' alt="123" /></div>
-        <div><img className='seed5' src='./image/seagrass.gif' alt="123" /></div>
-        <div><img className='seed6' src='./image/seagrass.gif' alt="123" /></div>
-        <div><img className='ss' src='./image/珊瑚.png' alt="123" /></div>
-        <div><img className='ss2' src='./image/珊瑚.png' alt="123" /></div>
-        <div><img className='ss3' src='./image/珊瑚.png' alt="123" /></div>
+      
+      <div style={{ position: 'absolute', top: '0px', left: '0px', zIndex: '0' }}><img className='background' src='./image/sea1.gif' alt="123" /></div>
+      <div style={{ position: 'fixed ', top: '0px', left: '0px', zIndex: '2' }}><img className='seed' src='./image/seagrass.gif' alt="123" /></div>
+      <div style={{ position: 'fixed ', top: '0px', left: '0px', zIndex: '2' }}><img className='seed2' src='./image/seagrass.gif' alt="123" /></div>
+      <div style={{ position: 'fixed ', top: '50%', right: '230px', zIndex: '1' }}><img className='seed3' src='./image/seagrass.gif' alt="123" /></div>
+      <div style={{ position: 'fixed ', top: '10%', right: '0px', zIndex: '1' }}><img className='seed4' src='./image/seagrass.gif' alt="123" /></div>
+      <div style={{ position: 'fixed ', bottom: '10%', right: '0px', zIndex: '0' }}><img className='seed5' src='./image/seagrass.gif' alt="123" /></div>
+      <div style={{ position: 'fixed ', bottom: '45%', left: '417px', zIndex: '0' }}><img className='seed6' src='./image/seagrass.gif' alt="123" /></div>
+      <div style={{ position: 'fixed ', bottom: '310px', height: '40px', zIndex: '1', opacity: 0.95 }}><img className='ss' src='./image/珊瑚.png' alt="123" /></div>
+      <div><img className='bb' src="./image/木板.png" alt="aaa" /></div>
+      <div style={{ position: 'fixed ', width: '330px', height: '250px', bottom: '140px', left: '1%', zIndex: '0' }}>
+      {ad ? ad_string : <><select id='ad_time_sel'>
+          <option>請選擇時間</option>
+          <option value="0.00001">0.00001/180秒</option>
+          <option value="0.00002">0.00002/20秒</option>
+          <option value="0.00003">0.00003/30秒</option>
+        </select><button onClick={add_ad}>刊登廣告</button>
+        <textarea id='ad_text'></textarea></>}<div>
+        {Op&&<button onClick={reset_ad}>撤銷廣告</button>}
+      </div>
       </div>
       {fishs}
       {A && <Shark img='./image/shark.gif' />}
