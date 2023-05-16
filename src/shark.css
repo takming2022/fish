@@ -1,0 +1,12 @@
+.box {
+    display: flex;
+    position: absolute;
+    background-image: url('../public/image/shark.gif');
+    width: 240px;
+    height: 320px;
+    top:20%;left: 40%; 
+    overflow: hidden;
+    background-repeat: no-repeat;
+    z-index: 99999;
+    /* background: var(--accent); */
+}

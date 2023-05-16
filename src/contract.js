@@ -2,8 +2,8 @@ import { ethers } from 'ethers';
 import Web3 from 'web3';
 const provider = new ethers.providers.Web3Provider(window.ethereum)
 const signer = provider.getSigner()
-export const op_wallet_address ="0x9bb130065466c6cC16BacEc886EF81da0265DF85";//部屬合約的人的錢包地址
-const address = '0xedBD474fd448Bc827363846d37dE4d6939Af717E'//合約地址
+export const op_wallet_address ="0x60044530D164B27201cDbD053428ef160fB94e3C";//部屬合約的人的錢包地址
+const address = '0x10864b7a5859E8AD9D5384e6f0Dbe38DcFA07E6e'//合約地址
 export const abi = 
 [
 	{

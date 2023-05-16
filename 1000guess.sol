@@ -224,16 +224,16 @@ contract bet_various_v2 {
 
     function add_ad(string str) payable inState(State.Started) {
         require(now > ads[0].endtime);
-        require(msg.value == 0.03 ether ||msg.value == 0.05 ether ||msg.value == 0.07 ether);
+        require(msg.value == 0.00001 ether ||msg.value == 0.00002 ether ||msg.value == 0.00003 ether);
         uint256 starttime = now;
         uint256 endtime = starttime;
-        if (msg.value == 0.03 ether) {
+        if (msg.value == 0.00001 ether) {
             endtime +=10; //259200
             ads[0] = Ad(msg.sender, str, starttime, endtime);
-        } else if (msg.value == 0.05 ether) {
+        } else if (msg.value == 0.00002 ether) {
             endtime +=20; //432000
             ads[0] = Ad(msg.sender, str, starttime, endtime);
-        } else if (msg.value == 0.07 ether) {
+        } else if (msg.value == 0.00003 ether) {
             endtime +=30; //604800
             ads[0] = Ad(msg.sender, str, starttime, endtime);
         }
