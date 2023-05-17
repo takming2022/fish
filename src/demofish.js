@@ -48,20 +48,20 @@ const Demofish = () => {
     var wallet_address = accounts[0];
     let ad_time_sel = document.getElementById("ad_time_sel").value;
     let ad_txt = document.getElementById("ad_text").value;
-    if (ad_time_sel === "0.00001") {
-      let ether = 0.00001; // 抓 ether 值
+    if (ad_time_sel === "0.01") {
+      let ether = 0.01; // 抓 ether 值
       console.log(ether);
       let amount = Web3.utils.toWei(ether.toString())
       let ans = await contractInstance_singner.add_ad(ad_txt, { from: wallet_address, value: amount.toString() })
       console.log("ans", ans);
-    } else if (ad_time_sel === "0.00002") {
-      let ether = 0.00002; // 抓 ether 值
+    } else if (ad_time_sel === "0.02") {
+      let ether = 0.02; // 抓 ether 值
       console.log(ether);
       let amount = Web3.utils.toWei(ether.toString())
       let ans = await contractInstance_singner.add_ad(ad_txt, { from: wallet_address, value: amount.toString() })
       console.log("ans", ans);
-    } else if (ad_time_sel === "0.00003") {
-      let ether = 0.00003; // 抓 ether 值
+    } else if (ad_time_sel === "0.03") {
+      let ether = 0.03; // 抓 ether 值
       console.log(ether);
       let amount = Web3.utils.toWei(ether.toString())
       let ans = await contractInstance_singner.add_ad(ad_txt, { from: wallet_address, value: amount.toString() })
@@ -110,9 +110,9 @@ const Demofish = () => {
       <div style={{ position: 'fixed ', width: '330px', height: '250px', bottom: '140px', left: '1%', zIndex: '0' }}>
         {ad ? ad_string : <><select id='ad_time_sel'>
           <option>請選擇時間</option>
-          <option value="0.00001">0.00001/180秒</option>
-          <option value="0.00002">0.00002/20秒</option>
-          <option value="0.00003">0.00003/30秒</option>
+          <option value="0.01">0.01/180秒</option>
+          <option value="0.02">0.02/20秒</option>
+          <option value="0.03">0.03/30秒</option>
         </select><button onClick={add_ad}>刊登廣告</button>
         <textarea id='ad_text'></textarea></>}<div>
         {Op&&<button onClick={reset_ad}>撤銷廣告</button>}
